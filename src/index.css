@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +97,33 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cv-bg text-cv-dark font-tajawal;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-tajawal font-bold;
+  }
+}
+
+/* CV-specific styles */
+.section-title {
+  @apply text-cv-blue text-2xl font-bold border-b-2 border-cv-gold pb-2 mb-4;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-6;
+}
+
+.timeline-item::before {
+  content: '';
+  @apply absolute left-0 top-1 w-4 h-4 bg-cv-gold rounded-full;
+}
+
+.timeline-item:not(:last-child)::after {
+  content: '';
+  @apply absolute left-2 top-5 w-[2px] h-[calc(100%-16px)] bg-cv-light-blue;
+}
+
+.contact-link {
+  @apply flex items-center gap-2 text-cv-light-blue hover:text-cv-blue transition-colors;
 }
